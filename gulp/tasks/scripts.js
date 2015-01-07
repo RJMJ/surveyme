@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var watchify = require('watchify');
 var browserify = require('browserify');
+var jstify = require('jstify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
@@ -20,6 +21,11 @@ module.exports = function(config) {
     cache: {}, packageCache: {}, fullPaths: true,
     entries: [config.get('paths.client.src.scripts.main')],
     debug: useSourceMaps
+  }).transform('jstify', {
+    minifierOpts: {
+      collapseWhitespace: true,
+      conservativeCollapse: true
+    }
   });
 
   var bundle = function() {
