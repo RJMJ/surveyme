@@ -7,7 +7,8 @@ var BackboneRouteControl = require('backbone-route-control');
 
 var Router = BackboneRouteControl.extend({
   routes: {
-    '': 'home#index'
+    '': 'home#index',
+    'survey': 'survey#index'
   }
 });
 

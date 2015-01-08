@@ -1,6 +1,7 @@
 'use strict';
 
 var HomeController = require('./home-controller');
+var SurveyController = require('./survey-controller');
 
 module.exports = function(options) {
   options = options || {};
@@ -10,6 +11,7 @@ module.exports = function(options) {
   }
 
   return {
-    home: new HomeController({ app: options.app })
+    home: new HomeController({ app: options.app }),
+    survey: new SurveyController({ app: options.app })
   };
 };

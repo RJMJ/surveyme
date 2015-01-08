@@ -1,6 +1,6 @@
 'use strict';
 
-var HomeView = require('../views/home/index');
+var HomeIndexView = require('../views/home/index');
 
 var HomeController = function(options) {
   options = options || {};
@@ -13,10 +13,8 @@ var HomeController = function(options) {
 
   return {
     index: function() {
-      var deferredView = app.collections.questions.fetch().then(function() {
-        return new HomeView({ app: app });
-      });
-      app.renderDeferredView(deferredView);
+      var view = new HomeIndexView({ app: app });
+      app.renderView(view);
     }
   };
 };
